@@ -1,0 +1,36 @@
+<div *ngIf="false === loggedIn" class="row">
+  <div class="col-4"></div>
+  <div class="col-4 pt-5">
+    <mdb-card>
+      <mdb-card-body>
+        <form (ngSubmit)="login()">
+          <fieldset>
+            <legend>Login</legend>
+            <div class="md-form">
+              <mdb-icon fas icon="envelope" class="prefix grey-text"></mdb-icon>
+              <label for="input-email">Email</label>
+              <input mdbInput [class.is-invalid]="errors['email']" [(ngModel)]="email"
+                     type="text" id="input-email" name="email" class="form-control" autocomplete="off">
+              <div class="invalid-feedback" *ngIf="errors['email']">
+                {{errors['email']}}
+              </div>
+            </div>
+            <div class="md-form">
+              <mdb-icon fas icon="lock" class="prefix grey-text"></mdb-icon>
+              <label for="input-password">Password</label>
+              <input mdbInput [(ngModel)]="password" [class.is-invalid]="errors['password']"
+                     type="password" id="input-password" name="password" class="form-control">
+              <div class="invalid-feedback" *ngIf="errors['password']">
+                {{errors['password']}}
+              </div>
+            </div>
+          </fieldset>
+          <br/>
+          <br/>
+          <button mdbBtn type="submit" color="primary" [block]="true">Login</button>
+          <br/>
+        </form>
+      </mdb-card-body>
+    </mdb-card>
+  </div>
+</div>

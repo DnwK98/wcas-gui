@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+@import "~angular-bootstrap-md/assets/scss/bootstrap/bootstrap";
+@import "~angular-bootstrap-md/assets/scss/mdb";
+
+html, body {
+  height: 100%;
+  overflow-x: hidden;
+}
+
+body {
+
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #eeeeee;
+}
