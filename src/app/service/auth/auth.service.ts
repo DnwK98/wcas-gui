@@ -54,7 +54,7 @@ export class AuthService {
 
   public logout() {
     this.setToken('');
-    this.verifyLoggedIn().then();
+    this.redirectToLogin();
   }
 
   public verifyLoggedIn() {

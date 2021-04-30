@@ -1,0 +1,32 @@
+<app-loading *ngIf="null === websites"></app-loading>
+
+<div class="row" *ngIf="null !== websites">
+  <div *ngFor="let website of websites" class="col-md-6 col-lg-4 mb-3">
+    <mdb-card>
+      <mdb-card-body>
+        <h5>{{website.url}}</h5>
+        <b>status</b>: active
+        <br/>
+        <br/>
+        <button mdbBtn routerLink="/website/{{website.id}}" type="button" color="primary" [block]="true" size="sm">
+          Details
+        </button>
+      </mdb-card-body>
+    </mdb-card>
+  </div>
+
+  <div class="col-md-6 col-lg-4 mb-3">
+    <mdb-card>
+      <mdb-card-body>
+        <h5>Create new website</h5>
+        <br/>
+        <br/>
+        <button mdbBtn routerLink="/website/new" type="button" color="success" [block]="true" size="sm">
+          Create
+        </button>
+      </mdb-card-body>
+    </mdb-card>
+  </div>
+
+</div>
+

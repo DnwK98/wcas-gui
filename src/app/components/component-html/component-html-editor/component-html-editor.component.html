@@ -1,0 +1,4 @@
+<app-component-editor-header [editorName]="'HTML editor'"></app-component-editor-header>
+
+<input mdbInput *ngIf="component" [(ngModel)]="component.content"
+       type="text" id="input-password" name="password" class="form-control">

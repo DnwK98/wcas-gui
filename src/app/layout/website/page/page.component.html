@@ -1,0 +1,21 @@
+<app-loading *ngIf="!page"></app-loading>
+<div *ngIf="page" class="row">
+  <div class="col-lg-2 col-md-4 p-0">
+      <mdb-card class="left-card">
+        <ng-template #editorWindow></ng-template>
+        <app-components-list [class.hidden-component]="editorOpened"></app-components-list>
+      </mdb-card>
+  </div>
+  <div class="col-lg-5 col-md-8 mt-3">
+    <mdb-card style="height: 90vh; overflow: auto">
+        <app-component-page [class.hidden-component]="bigEditorOpened" #pageView></app-component-page>
+    </mdb-card>
+  </div>
+  <div class="col-lg-5 col-md-12 mt-3">
+    <mdb-card style="height: 90vh;">
+      <div style="width: 100%; height: 100%">
+        <iframe class="preview-iframe" [srcdoc]="previewIframe"></iframe>
+      </div>
+    </mdb-card>
+  </div>
+</div>

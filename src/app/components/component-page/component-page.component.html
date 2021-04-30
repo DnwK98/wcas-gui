@@ -1,0 +1,34 @@
+<div
+  style="
+    width: 100%;
+    padding: 3%;
+"
+  [class.is-active]="isActive"
+>
+  <!-- list of activated children -->
+  <div
+    class="drop-list-zone"
+    cdkDropList
+    cdkDropListSortingDisabled
+    [cdkDropListData]="this"
+    [cdkDropListEnterPredicate]="falsePredicate"
+    [cdkDropListConnectedTo]="dropListConnectedTo()"
+  >
+    <ng-template #viewContainerRef></ng-template>
+  </div>
+
+  <!-- place to add new child -->
+  <div
+    class="drop-list-zone"
+    cdkDropList
+    cdkDropListSortingDisabled
+    style="min-height: 80px"
+    [cdkDropListData]="this"
+    (cdkDropListDropped)="dropped($event)"
+    [cdkDropListConnectedTo]="dropListConnectedTo()"
+  >
+
+  </div>
+
+
+</div>

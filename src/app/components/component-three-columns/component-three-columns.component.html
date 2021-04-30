@@ -1,0 +1,54 @@
+<div cdkDrag
+     [cdkDragData]="getDragData()"
+     [class.is-active]="isActive"
+     style="width: 100%;"
+>
+  <div style="background-color: #fad7e7;">
+    Three columns component
+    <div style="clear: both"></div>
+    <div style="width: 33%; padding: 4px;  float: left;">
+      <div
+        class="drop-list-zone"
+        cdkDropList
+        cdkDropListSortingDisabled
+        [cdkDropListData]="this"
+        (cdkDropListDropped)="droppedColumn($event, 1)"
+        [cdkDropListEnterPredicate]="columnEmptyPredicate(1)"
+        [cdkDropListConnectedTo]="dropListConnectedTo()"
+        style="border: 1px solid rgba(0,0,0,0.1); min-height: 50px;"
+      >
+        <ng-template #viewContainerRef1></ng-template>
+      </div>
+    </div>
+    <div style="width: 33%; padding: 4px;  float: left;">
+      <div
+        class="drop-list-zone"
+        cdkDropList
+        cdkDropListSortingDisabled
+        [cdkDropListData]="this"
+        (cdkDropListDropped)="droppedColumn($event, 2)"
+        [cdkDropListEnterPredicate]="columnEmptyPredicate(2)"
+        [cdkDropListConnectedTo]="dropListConnectedTo()"
+        style="border: 1px solid rgba(0,0,0,0.1); min-height: 50px;"
+      >
+        <ng-template #viewContainerRef2></ng-template>
+      </div>
+    </div>
+    <div style="width: 33%; padding: 4px; float: left;">
+      <div
+        class="drop-list-zone"
+        cdkDropList
+        cdkDropListSortingDisabled
+        [cdkDropListData]="this"
+        (cdkDropListDropped)="droppedColumn($event, 3)"
+        [cdkDropListEnterPredicate]="columnEmptyPredicate(3)"
+        [cdkDropListConnectedTo]="dropListConnectedTo()"
+        style="border: 1px solid rgba(0,0,0,0.1); min-height: 50px;"
+      >
+        <ng-template #viewContainerRef3></ng-template>
+      </div>
+    </div>
+    <div style="clear: both"></div>
+  </div>
+
+</div>

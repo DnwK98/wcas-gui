@@ -1,0 +1,71 @@
+<app-loading *ngIf="!website"></app-loading>
+<div class="row" *ngIf="website">
+  <div class="col-lg-5 pt-5">
+    <mdb-card>
+      <mdb-card-body>
+        <h3>Website</h3>
+        <br/>
+        <table class="table">
+          <tr>
+            <td>Url</td>
+            <td>{{website.url}}</td>
+          </tr>
+          <tr>
+            <td>Created</td>
+            <td>{{website.created}}</td>
+          </tr>
+          <tr>
+            <td>Status</td>
+            <td>active</td>
+          </tr>
+        </table>
+        <div class="row pt-2">
+          <div class="col-lg-4"></div>
+          <div class="col-lg-4">
+            <button mdbBtn
+                    class="btn btn-warning" type="submit" size="sm" [block]="true">Deactivate
+            </button>
+          </div>
+          <div class="col-lg-4">
+            <button mdbBtn
+                    class="btn btn-danger" type="submit" size="sm" [block]="true">Delete
+            </button>
+          </div>
+        </div>
+      </mdb-card-body>
+    </mdb-card>
+  </div>
+  <div class="col-lg-7">
+    <mdb-card *ngFor="let page of website.pages" class="mt-5">
+      <mdb-card-body>
+        <div class="row">
+          <div class="col-8">
+            <table class="table">
+              <tr>
+                <td>Path</td>
+                <td>{{page.path}}</td>
+              </tr>
+              <tr>
+                <td>Status</td>
+                <td>active</td>
+              </tr>
+            </table>
+          </div>
+          <div class="col-4">
+            <button mdbBtn (click)="edit(page.id)"
+                    class="btn btn-primary" type="submit" size="sm" [block]="true">Edit
+            </button>
+            <br/>
+            <button mdbBtn
+                    class="btn btn-warning" type="submit" size="sm" [block]="true">Deactivate
+            </button>
+            <br/>
+            <button mdbBtn
+                    class="btn btn-danger" type="submit" size="sm" [block]="true">Delete
+            </button>
+          </div>
+        </div>
+      </mdb-card-body>
+    </mdb-card>
+  </div>
+</div>

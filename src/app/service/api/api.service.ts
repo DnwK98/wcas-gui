@@ -32,7 +32,37 @@ export class ApiService {
   //
   // }
   //
-  // public postJson<T>(path: string, json: any): Promise<T> {
-  //
-  // }
+
+  public postJson<T>(path: string, json: any): Promise<T> {
+    const headers = new HttpHeaders()
+      .append('Authorization', 'Bearer ' + this.authService.getToken());
+
+    return this.http.post<any>(environment.apiUrl + path, json,{headers: headers}).toPromise()
+      .then(response => {
+        return Promise.resolve(response['data']);
+      })
+      .catch(response => {
+        if(401 === response['status']){
+          this.authService.verifyLoggedIn().then();
+        }
+        return Promise.reject(response);
+      });
+  }
+
+  public postJsonRaw(path: string, json: any): Promise<any> {
+    const headers = new HttpHeaders()
+      .append('Authorization', 'Bearer ' + this.authService.getToken());
+
+    return this.http.post(environment.apiUrl + path, json, {headers: headers, responseType: "text"})
+      .toPromise()
+      .then(response => {
+        return Promise.resolve(response);
+      })
+      .catch(response => {
+        if(401 === response['status']){
+          this.authService.verifyLoggedIn().then();
+        }
+        return Promise.reject(response);
+      });
+  }
 }
