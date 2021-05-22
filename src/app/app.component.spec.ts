@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'tusi-gui'`, () => {
+  it(`should have as title 'wcas-gui'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('tusi-gui');
+    expect(app.title).toEqual('wcas-gui');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('tusi-gui app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('wcas-gui app is running!');
   });
 });

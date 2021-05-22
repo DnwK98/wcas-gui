@@ -8,4 +8,4 @@ RUN npm run build
 
 FROM nginx:1.17.1-alpine
 COPY nginx.conf /etc/nginx/nginx.conf
-COPY --from=build /usr/src/app/dist/tusi-gui /usr/share/nginx/html
+COPY --from=build /usr/src/app/dist/wcas-gui /usr/share/nginx/html
