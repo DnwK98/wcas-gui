@@ -1,0 +1,15 @@
+.component-is-selected {
+  position: relative;
+  z-index: 20;
+
+  &::after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0 6px 8px 0 rgba(50, 50, 50, 0.2), 0 -4px 8px 0 rgba(50, 50, 50, 0.15), 6px 0 8px 0 rgba(50, 50, 50, 0.2), -6px 0 8px 0 rgba(50, 50, 50, 0.2);
+  }
+}

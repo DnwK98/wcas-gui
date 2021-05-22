@@ -1,0 +1,10 @@
+<div class="col-lg-12">
+  <app-component-big-editor-header [editorName]="'HTML'"></app-component-big-editor-header>
+</div>
+
+<angular-editor *ngIf="component"
+                [(ngModel)]="component.content"
+                [config]="editorConfig"
+                style="min-height: 70vh">
+</angular-editor>
+

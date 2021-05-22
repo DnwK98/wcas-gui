@@ -1,4 +1,5 @@
-<app-component-editor-header [editorName]="'HTML editor'"></app-component-editor-header>
+<app-component-editor-header [editorName]="'HTML'"></app-component-editor-header>
 
-<input mdbInput *ngIf="component" [(ngModel)]="component.content"
-       type="text" id="input-password" name="password" class="form-control">
+<br />
+
+<div (click)="onOpenBig()" class="btn btn-block btn-primary">Edit</div>

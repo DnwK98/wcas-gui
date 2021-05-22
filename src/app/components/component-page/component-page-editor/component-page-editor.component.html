@@ -1,4 +1,29 @@
-editor Page
+<app-component-editor-header [editorName]="'Page'"></app-component-editor-header>
 
-<!--<input mdbInput *ngIf="component" [(ngModel)]="component.content"-->
-<!--       type="text" id="input-password" name="password" class="form-control">-->
+  <div class="row pt-2" *ngIf="component">
+    <div class="col-9">
+      Background color
+    </div>
+    <div class="col-3">
+      <input
+        [(colorPicker)]="component.backgroundColor"
+        [style.background]="component.backgroundColor"
+        style="cursor: pointer; font-size: 1px; height: 100%"
+        type="text" class="form-control" autocomplete="off" readonly/>
+    </div>
+  </div>
+
+
+  <div class="row pt-2" *ngIf="component">
+    <div class="col-9">
+      Text color
+    </div>
+    <div class="col-3 align-middle">
+      <input
+        [(colorPicker)]="component.textColor"
+        [style.background]="component.textColor"
+        style="cursor: pointer; font-size: 1px; height: 100%"
+        type="text" class="form-control" autocomplete="off" readonly/>
+    </div>
+  </div>
+

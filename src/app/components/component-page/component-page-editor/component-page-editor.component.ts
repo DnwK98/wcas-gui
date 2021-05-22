@@ -15,7 +15,7 @@ export class ComponentPageEditorComponent extends ComponentAbstractEditorCompone
 
   setComponent(component: ComponentAbstractComponent): void {
     this.component = component as ComponentPageComponent;
-    this.component.isActive = true;
+    this.component.isSelected = true;
   }
 
   getComponent(): ComponentAbstractComponent {
@@ -24,7 +24,7 @@ export class ComponentPageEditorComponent extends ComponentAbstractEditorCompone
 
   close(): void {
     if(this.component){
-      this.component.isActive = false;
+      this.component.isSelected = false;
     }
   }
 

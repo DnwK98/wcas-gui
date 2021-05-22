@@ -1,3 +1,6 @@
-.is-active {
-  border: solid 1px #FF5555;
+@import '../component-abstract/component-abstract.component';
+
+.is-selected {
+  @extend .component-is-selected;
+  background-color: hsl(175, 100%, 88%) !important;
 }

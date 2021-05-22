@@ -7,7 +7,9 @@
   [cdkDropListConnectedTo]="dropListConnectedTo()"
   style="height: 100%"
 >
+  <div cdkDrag [cdkDragData]="{definition: {name: 'BackgroundImageComponent'}}">BackgroundImageComponent</div>
   <div cdkDrag [cdkDragData]="{definition: {name: 'HtmlComponent', content:'Html'}}">HtmlComponent</div>
+  <div cdkDrag [cdkDragData]="{definition: {name: 'MarginsComponent'}}">MarginsComponent</div>
   <div cdkDrag [cdkDragData]="{definition: {name: 'ThreeColumnsComponent'}}">ThreeColumns</div>
   <div cdkDrag [cdkDragData]="{definition: {name: 'NoneComponent'}}">NoneComponent</div>
 </div>

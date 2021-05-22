@@ -1,12 +1,14 @@
 <div cdkDrag
      [cdkDragData]="getDragData()"
-     [class.is-active]="isActive"
+     [class.is-active]="isSelected"
      style="width: 100%;"
 >
-  <div style="background-color: #fad7e7;">
-    Three columns component
+  <div class="component-three-columns">
+    <div class="pt-2 pl-2">
+      <h5><i style="transform: rotate(90deg)" class="fas fa-bars"></i></h5>
+    </div>
     <div style="clear: both"></div>
-    <div style="width: 33%; padding: 4px;  float: left;">
+    <div style="width: 33%; padding: 4px;  float: left; overflow: hidden">
       <div
         class="drop-list-zone"
         cdkDropList
@@ -20,7 +22,7 @@
         <ng-template #viewContainerRef1></ng-template>
       </div>
     </div>
-    <div style="width: 33%; padding: 4px;  float: left;">
+    <div style="width: 33%; padding: 4px;  float: left; overflow: hidden">
       <div
         class="drop-list-zone"
         cdkDropList
@@ -34,7 +36,7 @@
         <ng-template #viewContainerRef2></ng-template>
       </div>
     </div>
-    <div style="width: 33%; padding: 4px; float: left;">
+    <div style="width: 33%; padding: 4px; float: left; overflow: hidden">
       <div
         class="drop-list-zone"
         cdkDropList

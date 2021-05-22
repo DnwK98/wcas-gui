@@ -1,14 +1,22 @@
 <app-loading *ngIf="!page"></app-loading>
 <div *ngIf="page" class="row">
   <div class="col-lg-2 col-md-4 p-0">
-      <mdb-card class="left-card">
+    <mdb-card class="left-card">
+      <div class="col-12">
         <ng-template #editorWindow></ng-template>
-        <app-components-list [class.hidden-component]="editorOpened"></app-components-list>
-      </mdb-card>
+        <div class="row">
+          <app-components-list [class.hidden-component]="editorOpened"></app-components-list>
+        </div>
+      </div>
+    </mdb-card>
   </div>
   <div class="col-lg-5 col-md-8 mt-3">
     <mdb-card style="height: 90vh; overflow: auto">
-        <app-component-page [class.hidden-component]="bigEditorOpened" #pageView></app-component-page>
+      <ng-template #bigEditorWindow></ng-template>
+      <app-component-page #pageView
+                          [class.hidden-component]="bigEditorOpened"
+                          style="height: 100%">
+      </app-component-page>
     </mdb-card>
   </div>
   <div class="col-lg-5 col-md-12 mt-3">

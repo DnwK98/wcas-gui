@@ -26,6 +26,8 @@ export class ComponentPageComponent extends ComponentAbstractComponent implement
   @ViewChild("viewContainerRef", {read: ViewContainerRef})
   VCR: ViewContainerRef | null = null;
 
+  backgroundColor: string = '#ffffff';
+  textColor: string = '#000000';
   children: ComponentRef<ComponentAbstractComponent>[] = [];
 
   public constructor(el: ElementRef,
@@ -40,6 +42,8 @@ export class ComponentPageComponent extends ComponentAbstractComponent implement
   getDefinition(): object {
     return {
       name: "PageComponent",
+      backgroundColor: this.backgroundColor,
+      textColor: this.textColor,
       children: this.children.map(childRef => childRef.instance.getDefinition())
     };
   }
@@ -54,6 +58,12 @@ export class ComponentPageComponent extends ComponentAbstractComponent implement
     }
     for (let child of definition.children) {
       this.add(child);
+    }
+    if(definition['backgroundColor']) {
+      this.backgroundColor = definition['backgroundColor'];
+    }
+    if(definition['textColor']) {
+      this.textColor = definition['textColor'];
     }
   }
 

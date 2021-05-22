@@ -9,7 +9,10 @@ import {ComponentBuilderService} from "../../service/page-component/component-bu
   styleUrls: ['./component-abstract.component.scss']
 })
 export abstract class ComponentAbstractComponent implements RemovableComponentsContainer {
-  isActive: boolean = false;
+
+  static CONNECTED_DROP_LISTS: string[] = [];
+
+  isSelected: boolean = false;
 
   @HostListener("click", ['$event'])
   onClickListener(event: MouseEvent) {
@@ -29,8 +32,6 @@ export abstract class ComponentAbstractComponent implements RemovableComponentsC
 
   protected constructor(protected el: ElementRef, protected editorManager: ComponentEditorManagementService) {
   }
-
-  static CONNECTED_DROP_LISTS: string[] = [];
 
   /**
    * Get Json definition required to build new component

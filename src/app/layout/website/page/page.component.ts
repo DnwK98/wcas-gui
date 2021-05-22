@@ -24,6 +24,9 @@ export class PageComponent implements OnInit, OnDestroy {
   @ViewChild("editorWindow", {read: ViewContainerRef})
   editorWindow: ViewContainerRef | null = null;
 
+  @ViewChild("bigEditorWindow", {read: ViewContainerRef})
+  bigEditorWindow: ViewContainerRef | null = null;
+
   @ViewChild('pageView')
   pageView: ComponentPageComponent | null = null;
 
@@ -54,9 +57,12 @@ export class PageComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    if (this.timer) {
-      this.timer.unsubscribe();
-    }
+    setTimeout(() => {
+      if (this.timer) {
+        this.timer.unsubscribe();
+      }
+      ComponentAbstractComponent.CONNECTED_DROP_LISTS = [];
+    }, 2000);
   }
 
   private loadPage(websiteId: string, pageId: string) {
@@ -64,7 +70,7 @@ export class PageComponent implements OnInit, OnDestroy {
       .then(page => {
         this.page = page;
         setTimeout(() => {
-          this.editorManager.attachWindows(this, this.editorWindow);
+          this.editorManager.attachWindows(this, this.editorWindow, this.bigEditorWindow);
           this.pageView?.applyDefinition(page.definition)
         }, 100)
       })

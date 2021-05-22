@@ -34,6 +34,14 @@ import {ComponentHtmlEditorComponent} from './components/component-html/componen
 import {ComponentPageEditorComponent} from './components/component-page/component-page-editor/component-page-editor.component';
 import {ComponentsListComponent} from './layout/website/page/components-list/components-list.component';
 import {ComponentEditorHeaderComponent} from './components/component-abstract/component-abstract-editor/component-editor-header/component-editor-header.component';
+import {ColorPickerModule} from "ngx-color-picker";
+import { ComponentHtmlBigEditorComponent } from './components/component-html/component-html-big-editor/component-html-big-editor.component';
+import { ComponentBigEditorHeaderComponent } from './components/component-abstract/component-abstract-big-editor/component-big-editor-header/component-big-editor-header.component';
+import { ComponentBackgroundImageComponent } from './components/component-background-image/component-background-image.component';
+import { ComponentBackgroundImageEditorComponent } from './components/component-background-image/component-background-image-editor/component-background-image-editor.component';
+import {AngularEditorModule} from "@kolkov/angular-editor";
+import { ComponentMarginsComponent } from './components/component-margins/component-margins.component';
+import { ComponentMarginsEditorComponent } from './components/component-margins/component-margins-editor/component-margins-editor.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +62,12 @@ import {ComponentEditorHeaderComponent} from './components/component-abstract/co
     ComponentPageEditorComponent,
     ComponentsListComponent,
     ComponentEditorHeaderComponent,
+    ComponentHtmlBigEditorComponent,
+    ComponentBigEditorHeaderComponent,
+    ComponentBackgroundImageComponent,
+    ComponentBackgroundImageEditorComponent,
+    ComponentMarginsComponent,
+    ComponentMarginsEditorComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,6 +77,8 @@ import {ComponentEditorHeaderComponent} from './components/component-abstract/co
     FormsModule,
     HttpClientModule,
     DragDropModule,
+    ColorPickerModule,
+    AngularEditorModule,
     // MDB
     MDBBootstrapModule.forRoot(),
     CheckboxModule,

@@ -1,3 +1,12 @@
-.is-active {
+.is-selected {
   border: solid 1px #FF5555;
+}
+
+.component-three-columns {
+  color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  min-height: 50px;
+
+  border: solid 1px rgba(100, 100, 100, 0.2) !important;
+  background-color: hsl(250, 100%, 75%);
 }

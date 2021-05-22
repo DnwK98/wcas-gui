@@ -1,0 +1,26 @@
+<app-component-editor-header [editorName]="'Background image'"></app-component-editor-header>
+
+<div class="row pt-4" *ngIf="component">
+  <div class="col-9" style="color: #757575">
+    Background color
+  </div>
+  <div class="col-3">
+    <input
+      [(colorPicker)]="component.backgroundColor"
+      [style.background]="component.backgroundColor"
+      style="cursor: pointer; font-size: 1px; height: 100%;"
+      type="text" class="form-control" autocomplete="off" readonly/>
+  </div>
+  <div class="col-12 pt-1">
+    <div class="col-12" style="border-bottom: 1px solid #ced4da;"></div>
+  </div>
+</div>
+
+<div *ngIf="component" class="md-form">
+  <label for="input-background-image">Background url</label>
+  <input mdbInput [(ngModel)]="component.backgroundImage"
+         type="text" id="input-background-image"
+         name="background-image"
+         class="form-control"
+         autocomplete="off">
+</div>
