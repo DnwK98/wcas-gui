@@ -1,27 +1,31 @@
 <app-component-editor-header [editorName]="'Margins'"></app-component-editor-header>
 <div *ngIf="component" class="row" style="color: #757575">
   <div class="col-12">
-    <br/>
-    <label for="input-margin-top">Margin top</label>
-    <select id="input-margin-top"
-            [(ngModel)]="component.marginTop"
-            class="form-control">
-      <option *ngFor="let marginSize of marginSizes" [ngValue]="marginSize">{{marginSize}}</option>
-    </select>
-    <br/>
-    <label for="input-margin-bottom">Margin bottom</label>
-    <select id="input-margin-bottom"
-            [(ngModel)]="component.marginBottom"
-            class="form-control">
-      <option *ngFor="let marginSize of marginSizes" [ngValue]="marginSize">{{marginSize}}</option>
-    </select>
-    <br/>
-    <label for="input-margin-left-right">Margin left-right</label>
-    <select id="input-margin-left-right"
-            [(ngModel)]="component.marginLeftRight"
-            class="form-control">
-      <option *ngFor="let marginSize of marginSizes" [ngValue]="marginSize">{{marginSize}}</option>
-    </select>
+
+    <div class="md-form-select2" style="margin-top: 6px;">
+      <label>Margin top</label>
+      <ng-select2 [data]="marginSizesSelect"
+                  [(ngModel)]="component.marginTop"
+                  [value]="component.marginTop">
+      </ng-select2>
+    </div>
+
+    <div class="md-form-select2" style="margin-top: 6px;">
+      <label>Margin bottom</label>
+      <ng-select2 [data]="marginSizesSelect"
+                  [(ngModel)]="component.marginBottom"
+                  [value]="component.marginBottom">
+      </ng-select2>
+    </div>
+
+    <div class="md-form-select2" style="margin-top: 6px;">
+      <label>Margin left-right</label>
+      <ng-select2 [data]="marginSizesSelect"
+                  [(ngModel)]="component.marginLeftRight"
+                  [value]="component.marginLeftRight">
+      </ng-select2>
+    </div>
+
   </div>
 </div>
 

@@ -20,6 +20,12 @@ export class ComponentMarginsEditorComponent extends ComponentAbstractEditorComp
     'medium',
     'big'
   ];
+  marginSizesSelect = [
+    {id: 'none', text: 'None'},
+    {id: 'small', text: 'Small'},
+    {id: 'medium', text: 'Medium'},
+    {id: 'big', text: 'Big'},
+  ];
 
   constructor(private editorManager: ComponentEditorManagementService) {
     super();

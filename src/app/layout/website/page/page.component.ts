@@ -4,15 +4,9 @@ import {PageDetailsDto, PageService} from "../../../service/website/page.service
 import {DomSanitizer} from "@angular/platform-browser";
 import {PagePreviewService} from "../../../service/website/page-preview.service";
 import {Subscription, timer} from "rxjs";
-import {CdkDragDrop} from "@angular/cdk/drag-drop";
-import {
-  ComponentAbstractComponent, EditorOpenedEvent,
-  RemovableComponentsContainer
-} from "../../../components/component-abstract/component-abstract.component";
+import {ComponentAbstractComponent} from "../../../components/component-abstract/component-abstract.component";
 import {ComponentPageComponent} from "../../../components/component-page/component-page.component";
-import {ComponentAbstractEditorComponent} from "../../../components/component-abstract/component-abstract-editor/component-abstract-editor.component";
 import {ComponentEditorManagementService} from "../../../service/page/component-editor-management.service";
-import {ComponentsListComponent} from "./components-list/components-list.component";
 
 @Component({
   selector: 'app-page',
@@ -21,10 +15,10 @@ import {ComponentsListComponent} from "./components-list/components-list.compone
 })
 export class PageComponent implements OnInit, OnDestroy {
 
-  @ViewChild("editorWindow", {read: ViewContainerRef})
+  @ViewChild('editorWindow', {read: ViewContainerRef})
   editorWindow: ViewContainerRef | null = null;
 
-  @ViewChild("bigEditorWindow", {read: ViewContainerRef})
+  @ViewChild('bigEditorWindow', {read: ViewContainerRef})
   bigEditorWindow: ViewContainerRef | null = null;
 
   @ViewChild('pageView')
@@ -33,6 +27,8 @@ export class PageComponent implements OnInit, OnDestroy {
   previewIframe: any;
   page: PageDetailsDto | null = null;
   timer: Subscription | null = null;
+  websiteId: string = '';
+  pageId: string = '';
 
   editorOpened: boolean = false;
   bigEditorOpened: boolean = false;
@@ -46,17 +42,17 @@ export class PageComponent implements OnInit, OnDestroy {
               private editorManager: ComponentEditorManagementService) {
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.loadPage(params['websiteId'], params['pageId']);
-    })
+    });
     setTimeout(() => this.timer = timer(100, 1000).subscribe(() => {
       this.refreshConnectedDropLists();
       this.refreshPreview();
     }), 2000);
   }
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     setTimeout(() => {
       if (this.timer) {
         this.timer.unsubscribe();
@@ -65,30 +61,46 @@ export class PageComponent implements OnInit, OnDestroy {
     }, 2000);
   }
 
-  private loadPage(websiteId: string, pageId: string) {
+  public onSave(): void {
+    const page = this.page as PageDetailsDto;
+    this.page = null;
+    this.pageService.savePage(this.websiteId, page)
+      .then(() => {
+        this.router.navigate(['/website/' + this.websiteId]);
+      })
+      .finally(() => this.page = page);
+  }
+
+  public onCancel(): void {
+    this.router.navigate(['/website/' + this.websiteId]);
+  }
+
+  private loadPage(websiteId: string, pageId: string): void {
     this.pageService.getPageDetails(websiteId, pageId)
       .then(page => {
         this.page = page;
+        this.websiteId = websiteId;
+        this.pageId = pageId;
         setTimeout(() => {
           this.editorManager.attachWindows(this, this.editorWindow, this.bigEditorWindow);
-          this.pageView?.applyDefinition(page.definition)
-        }, 100)
+          this.pageView?.applyDefinition(page.definition);
+        }, 100);
       })
       .catch(response => {
         if (404 === response['status']) {
           this.router.navigate(['not-found']).then();
         }
-      })
+      });
   }
 
-  private refreshPreview() {
-    let definition = this.pageView?.getDefinition();
+  private refreshPreview(): void {
+    const definition = this.pageView?.getDefinition();
     if (!definition || !this.page) {
       return;
     }
 
     if (JSON.stringify(this.page.definition) !== JSON.stringify(definition)) {
-      this.page.definition = definition
+      this.page.definition = definition;
 
       this.previewService.getPreview(definition)
         .then(response => {
@@ -97,10 +109,10 @@ export class PageComponent implements OnInit, OnDestroy {
     }
   }
 
-  private refreshConnectedDropLists() {
-    let a = this.element.nativeElement.querySelectorAll('.drop-list-zone');
-    let ids = [];
-    for (let el of a) {
+  private refreshConnectedDropLists(): void {
+    const a = this.element.nativeElement.querySelectorAll('.drop-list-zone');
+    const ids = [];
+    for (const el of a) {
       ids.push(el.getAttribute('id'));
     }
     ComponentAbstractComponent.CONNECTED_DROP_LISTS = ids;

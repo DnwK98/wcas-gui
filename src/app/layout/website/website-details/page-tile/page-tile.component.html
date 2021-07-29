@@ -1,0 +1,39 @@
+<mdb-card *ngIf="page" class="mt-5">
+  <mdb-card-body>
+    <div class="row">
+      <div class="col-8">
+        <table class="table">
+          <tr>
+            <td>Path</td>
+            <td>{{page.path}}</td>
+          </tr>
+          <tr>
+            <td>Status</td>
+            <td>{{page.status}}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-4">
+        <button mdbBtn (click)="edit(page.id)"
+                class="btn btn-primary" type="submit" size="sm" [block]="true">Edit
+        </button>
+        <br/>
+        <button mdbBtn
+                *ngIf="'active' === page.status"
+                (click)="setStatus('inactive')"
+                class="btn btn-warning" type="submit" size="sm" [block]="true">Deactivate
+        </button>
+        <button mdbBtn
+                *ngIf="'inactive' === page.status"
+                (click)="setStatus('active')"
+                class="btn btn-success" type="submit" size="sm" [block]="true">Activate
+        </button>
+        <br/>
+        <button mdbBtn
+                (click)="delete()"
+                class="btn btn-danger" type="submit" size="sm" [block]="true">Delete
+        </button>
+      </div>
+    </div>
+  </mdb-card-body>
+</mdb-card>

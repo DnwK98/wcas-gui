@@ -16,7 +16,7 @@ export class WebsiteTilesComponent implements OnInit {
     this.websiteService.getWebsites()
       .then(websites => {
         this.websites = websites;
-      })
+      });
   }
 
 }

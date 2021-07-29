@@ -4,8 +4,33 @@
     <mdb-card class="left-card">
       <div class="col-12">
         <ng-template #editorWindow></ng-template>
-        <div class="row">
-          <app-components-list [class.hidden-component]="editorOpened"></app-components-list>
+        <div class="row" [class.hidden-component]="editorOpened">
+
+          <div style="width: 50%; float: left">
+            <button mdbBtn (click)="onSave()" type="submit" color="success" [block]="true">Save</button>
+          </div>
+          <div style="width: 50%; float: left">
+            <button mdbBtn
+                    (click)="onCancel()"
+                    type="submit"
+                    color="white"
+                    [block]="true">
+              Cancel
+            </button>
+          </div>
+          <div style="clear: both"></div>
+          <div class="pt-3 col-12"></div>
+          <div class="col-3 pt-4 pl-4 drag-drop-help text-center">
+            <h1>
+              <i class="fas fa-hand-pointer"></i>
+            </h1>
+          </div>
+          <div class="col-9 p-3 text-justify drag-drop-help">
+              To modify your page just drag and drop components to the page area.
+          </div>
+          <div class="pt-3 col-12"></div>
+
+          <app-components-list style="width: 100%"></app-components-list>
         </div>
       </div>
     </mdb-card>

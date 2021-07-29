@@ -5,7 +5,7 @@
     <mdb-card>
       <mdb-card-body>
         <h5>{{website.url}}</h5>
-        <b>status</b>: active
+        <b>status</b>: {{website.status}}
         <br/>
         <br/>
         <button mdbBtn routerLink="/website/{{website.id}}" type="button" color="primary" [block]="true" size="sm">

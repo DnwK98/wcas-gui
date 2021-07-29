@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-lg-3 col-xs-12"></div>
+  <div class="col-lg-6 col-xs-12 pt-5">
+    <mdb-card>
+      <mdb-card-body>
+        <h3>
+          Add new domain
+        </h3>
+        <br />
+
+        <app-loading *ngIf="loading"></app-loading>
+        <form *ngIf="!loading" (ngSubmit)="create()" class="grey-text">
+          <fieldset>
+            <div class="row">
+              <div class="col-8">
+                <div class="md-form">
+                  <mdb-icon fas icon="link" class="prefix"></mdb-icon>
+                  <label for="input-url">Domain</label>
+                  <input mdbInput [(ngModel)]="domain" [class.is-invalid]="errors['domain']"
+                         type="text" id="input-url" name="url" class="form-control" autocomplete="off">
+                  <div class="invalid-feedback" *ngIf="errors['domain']" style="margin-left: 40px">
+                    {{errors['domain']}}
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-4 pt-4">
+                <button mdbBtn type="submit" color="success" [block]="true">Add</button>
+              </div>
+
+            </div>
+          </fieldset>
+        </form>
+      </mdb-card-body>
+    </mdb-card>
+  </div>
+</div>

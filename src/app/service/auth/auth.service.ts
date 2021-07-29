@@ -1,9 +1,9 @@
 import {Injectable, OnInit} from '@angular/core';
-import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
-import {Subscription} from "rxjs";
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {Subscription} from 'rxjs';
 import {timer} from 'rxjs';
-import {Router} from "@angular/router";
-import {environment} from "../../../environments/environment";
+import {Router} from '@angular/router';
+import {environment} from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,7 @@ export class AuthService {
     });
   }
 
-  public login(email: string, password: string) {
+  public login(email: string, password: string): Promise<TokenResponse|void> {
     const params = new HttpParams()
       .set('email', email)
       .set('password', password);
@@ -29,14 +29,30 @@ export class AuthService {
       .append('Content-Type', 'application/x-www-form-urlencoded');
 
     return this.http
-      .post<TokenResponse>(environment.apiUrl + '/api/auth/login', params, {headers: headers})
+      .post<TokenResponse>(environment.apiUrl + '/api/auth/login', params, {headers})
       .toPromise()
       .then(res => {
         this.setToken(res.token);
       });
   }
 
-  public getUserInfo() {
+  public register(email: string, password: string, passwordVerify: string): Promise<TokenResponse|void> {
+    const params = new HttpParams()
+      .set('email', email)
+      .set('password', password)
+      .set('passwordVerify', passwordVerify);
+    const headers = new HttpHeaders()
+      .append('Content-Type', 'application/x-www-form-urlencoded');
+
+    return this.http
+      .post<TokenResponse>(environment.apiUrl + '/api/auth/register', params, {headers})
+      .toPromise()
+      .then(res => {
+        this.setToken(res.token);
+      });
+  }
+
+  public getUserInfo(): Promise<any> {
     const that = this;
     return new Promise<UserInfo | null>((resolve, reject) => {
       if (null !== that.userInfo) {
@@ -49,20 +65,20 @@ export class AuthService {
         .catch(() => {
           reject(null);
         });
-    })
+    });
   }
 
-  public logout() {
+  public logout(): void {
     this.setToken('');
     this.redirectToLogin();
   }
 
-  public verifyLoggedIn() {
+  public verifyLoggedIn(): Promise<any> {
     const headers = new HttpHeaders()
       .append('Authorization', 'Bearer ' + this.getToken());
     const that = this;
     return that.http
-      .get<any>(environment.apiUrl + '/api/me', {headers: headers}).toPromise()
+      .get<any>(environment.apiUrl + '/api/me', {headers}).toPromise()
       .then(res => {
         that.userInfo = res;
       })
@@ -77,15 +93,15 @@ export class AuthService {
       });
   }
 
-  public redirectToLogin() {
+  public redirectToLogin(): void {
     this.router.navigate(['login']);
   }
 
-  public getToken() {
+  public getToken(): string|null {
     if ('' !== this.token) {
       return this.token;
     }
-    let token = localStorage.getItem('token');
+    const token = localStorage.getItem('token');
     if (token) {
       this.token = token;
       return token;
@@ -94,21 +110,21 @@ export class AuthService {
     return null;
   }
 
-  private refreshToken() {
+  private refreshToken(): void {
     const headers = new HttpHeaders()
       .append('Authorization', 'Bearer ' + this.getToken());
     this.http
-      .post<TokenResponse>(environment.apiUrl + '/api/auth/refresh', null, {headers: headers})
+      .post<TokenResponse>(environment.apiUrl + '/api/auth/refresh', null, {headers})
       .toPromise()
       .then(res => {
         this.setToken(res.token);
       })
       .catch(() => {
         this.verifyLoggedIn().then();
-      })
+      });
   }
 
-  private setToken(token: string) {
+  private setToken(token: string): void {
     localStorage.setItem('token', token);
     this.token = token;
   }
@@ -119,5 +135,5 @@ export interface UserInfo {
 }
 
 interface TokenResponse {
-  token: string
+  token: string;
 }

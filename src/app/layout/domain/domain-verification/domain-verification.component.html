@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-lg-2 col-xs-12"></div>
+  <div class="col-lg-8 col-xs-12 pt-5">
+    <mdb-card>
+      <mdb-card-body>
+        <app-loading *ngIf="!domainVerification"></app-loading>
+
+        <div class="row" *ngIf="domainVerification && domainVerification.isVerified">
+          <div class="col-12 p-4 domain-verification-text text-center">
+            <h3>Domain <b>{{domainVerification.domain}}</b> is verified</h3>
+            <br />
+            <i style="font-size: 80px; color: rgba(20, 200, 20, 0.8)" class="fas fa-check"></i>
+            <br />
+            <br />
+            You can use your domain in all new websites
+            <br />
+            <br />
+            <button mdbBtn routerLink="/"  color="elegant">Go back</button>
+          </div>
+        </div>
+
+        <div class="row" *ngIf="domainVerification && !domainVerification.isVerified">
+          <div class="col-12 p-4 domain-verification-text text-center">
+            <h3>Domain <b>{{domainVerification.domain}}</b> is almost ready</h3>
+            <br />
+            <i style="font-size: 80px; color: rgba(200,200,20,0.8)" class="fas fa-exclamation"></i>
+            <br />
+            <br />
+            The only think you have to do is add an A record in DNS for your domain.
+            <br />
+            <br />
+            List of IP addresses:
+            <br />
+            <span *ngFor="let ip of domainVerification.ipAddresses">{{ip}}<br /></span>
+            <br />
+            <a href="https://www.google.com/search?q=How+to+add+A+record+in+DNS" target="_blank">
+              <button mdbBtn color="primary">Help</button>
+            </a>
+            <button mdbBtn routerLink="/"  color="elegant">Go back</button>
+          </div>
+        </div>
+
+
+      </mdb-card-body>
+    </mdb-card>
+  </div>
+</div>

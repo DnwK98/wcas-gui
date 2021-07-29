@@ -16,19 +16,30 @@
           </tr>
           <tr>
             <td>Status</td>
-            <td>active</td>
+            <td>{{website.status}}</td>
           </tr>
         </table>
         <div class="row pt-2">
           <div class="col-lg-4"></div>
           <div class="col-lg-4">
             <button mdbBtn
-                    class="btn btn-warning" type="submit" size="sm" [block]="true">Deactivate
+                    *ngIf="website.status === 'active'"
+                    (click)="setStatus('inactive')"
+                    class="btn btn-warning" type="submit" size="sm" [block]="true">
+              Deactivate
+            </button>
+            <button mdbBtn
+                    *ngIf="website.status === 'inactive'"
+                    (click)="setStatus('active')"
+                    class="btn btn-success" type="submit" size="sm" [block]="true">
+              Activate
             </button>
           </div>
           <div class="col-lg-4">
             <button mdbBtn
-                    class="btn btn-danger" type="submit" size="sm" [block]="true">Delete
+                    (click)="delete()"
+                    class="btn btn-danger" type="submit" size="sm" [block]="true">
+              Delete
             </button>
           </div>
         </div>
@@ -36,36 +47,7 @@
     </mdb-card>
   </div>
   <div class="col-lg-7">
-    <mdb-card *ngFor="let page of website.pages" class="mt-5">
-      <mdb-card-body>
-        <div class="row">
-          <div class="col-8">
-            <table class="table">
-              <tr>
-                <td>Path</td>
-                <td>{{page.path}}</td>
-              </tr>
-              <tr>
-                <td>Status</td>
-                <td>active</td>
-              </tr>
-            </table>
-          </div>
-          <div class="col-4">
-            <button mdbBtn (click)="edit(page.id)"
-                    class="btn btn-primary" type="submit" size="sm" [block]="true">Edit
-            </button>
-            <br/>
-            <button mdbBtn
-                    class="btn btn-warning" type="submit" size="sm" [block]="true">Deactivate
-            </button>
-            <br/>
-            <button mdbBtn
-                    class="btn btn-danger" type="submit" size="sm" [block]="true">Delete
-            </button>
-          </div>
-        </div>
-      </mdb-card-body>
-    </mdb-card>
+    <app-page-tile *ngFor="let page of website.pages" [page]="page" [website]="website"></app-page-tile>
+    <app-new-path-form [website]="website"></app-new-path-form>
   </div>
 </div>

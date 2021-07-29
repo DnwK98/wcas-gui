@@ -1,0 +1,12 @@
+<app-component-editor-header [editorName]="'Background image'"></app-component-editor-header>
+
+
+
+<div *ngIf="component" class="md-form">
+  <label for="input-image">Image url</label>
+  <input mdbInput [(ngModel)]="component.image"
+         type="text" id="input-image"
+         name="image"
+         class="form-control"
+         autocomplete="off">
+</div>

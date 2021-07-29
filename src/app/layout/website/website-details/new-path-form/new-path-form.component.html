@@ -1,0 +1,39 @@
+<mdb-card *ngIf="website" class="mt-5">
+  <mdb-card-body>
+    <div class="row">
+      <div class="col-12">
+        <h4>Create new path</h4>
+      </div>
+      <br />
+      <div class="col-8 row pt-2">
+        <div class="col-6" style="margin-top:38px;">
+          <div class="text-right ">
+            {{website.url}}/
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="md-form row">
+            <label for="website-new-page-path">(new path)</label>
+            <input mdbInput
+                   [(ngModel)]="newPath"
+                   [class.is-invalid]="'' !== newPathError"
+                   autocomplete="off"
+                   id="website-new-page-path"
+                   type="text"
+                   class="form-control">
+            <div class="invalid-feedback" *ngIf="'' !== newPathError">
+              {{ newPathError }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4 pt-5">
+        <button mdbBtn (click)="createPage()" class="btn btn-success" type="submit" size="sm" [block]="true">
+          Create
+        </button>
+      </div>
+    </div>
+  </mdb-card-body>
+</mdb-card>
+<br />
+<br />

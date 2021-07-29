@@ -5,6 +5,7 @@ import {ComponentAbstractComponent} from "../../components/component-abstract/co
 import {ComponentThreeColumnsComponent} from "../../components/component-three-columns/component-three-columns.component";
 import {ComponentBackgroundImageComponent} from "../../components/component-background-image/component-background-image.component";
 import {ComponentMarginsComponent} from "../../components/component-margins/component-margins.component";
+import {ComponentImageComponent} from "../../components/component-image/component-image.component";
 
 @Injectable({
   providedIn: 'root'
@@ -40,6 +41,7 @@ export class ComponentBuilderService {
       case "BackgroundImageComponent": return ComponentBackgroundImageComponent;
       case "PageComponent": return ComponentPageComponent;
       case "HtmlComponent": return ComponentHtmlComponent;
+      case "ImageComponent": return ComponentImageComponent;
       case "MarginsComponent": return ComponentMarginsComponent;
       case "ThreeColumnsComponent": return ComponentThreeColumnsComponent;
       default: return null;

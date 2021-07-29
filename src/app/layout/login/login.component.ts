@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     this.authService.verifyLoggedIn()
       .then((res) => {
         that.loggedIn = true;
-        that.router.navigate(['/'])
+        that.router.navigate(['/']);
       })
       .catch(() => {
         that.loggedIn = false;

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ComponentEditorManagementService} from "../../../../service/page/component-editor-management.service";
+import {ComponentEditorManagementService} from '../../../../service/page/component-editor-management.service';
 
 @Component({
   selector: 'app-component-editor-header',
@@ -15,7 +15,7 @@ export class ComponentEditorHeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  clickClose() {
+  public clickClose(): void {
     this.editorManager.closeEditor();
   }
 

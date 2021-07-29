@@ -28,13 +28,13 @@ export class ComponentHtmlEditorComponent extends ComponentAbstractEditorCompone
   }
 
   close(): void {
-    if(this.component){
+    if (this.component){
       this.component.isSelected = false;
     }
   }
 
-  onOpenBig() {
-    if(this.component) {
+  onOpenBig(): void {
+    if (this.component) {
       this.editorManager.openBigEditor(ComponentHtmlBigEditorComponent, this.component);
     }
   }

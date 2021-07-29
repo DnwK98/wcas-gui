@@ -13,7 +13,7 @@ export class ComponentBackgroundImageEditorComponent extends ComponentAbstractEd
   component: ComponentBackgroundImageComponent | null = null;
 
   close(): void {
-    if(this.component){
+    if (this.component){
       this.component.isSelected = false;
     }
   }

@@ -12,6 +12,7 @@ import {ComponentBuilderService} from "../../service/page-component/component-bu
 export class ComponentHtmlComponent extends ComponentAbstractComponent{
 
   content: string = '';
+  textAlign: string = 'left';
 
   public constructor(el: ElementRef,
                      editorManager: ComponentEditorManagementService) {
@@ -20,13 +21,16 @@ export class ComponentHtmlComponent extends ComponentAbstractComponent{
 
   getDefinition(): object {
     return {
-      name: "HtmlComponent",
-      content: this.content
+      name: 'HtmlComponent',
+      content: this.content,
+      textAlign: this.textAlign,
     };
   }
 
   applyDefinition(definition: any): void {
+    console.log(definition);
     this.content = definition.content;
+    this.textAlign = definition.textAlign;
   }
 
   getEditor(): any {

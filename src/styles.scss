@@ -4,6 +4,7 @@
 @import "~@fortawesome/fontawesome-free/scss/brands";
 @import "~angular-bootstrap-md/assets/scss/bootstrap/bootstrap";
 @import "~angular-bootstrap-md/assets/scss/mdb";
+@import '~ngx-toastr/toastr-bs4-alert';
 
 html, body {
   height: 100%;
@@ -36,4 +37,66 @@ mdb-card {
 
 .example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+
+.md-form-select2 {
+  label {
+    position: relative;
+    left: 0;
+    color: #757575;
+    font-size: 0.8rem;
+    cursor: text;
+    font-weight: 300;
+  }
+
+  .select2-container {
+    width: 100% !important;
+    margin-bottom: 8px;
+
+    .select2-selection__choice {
+      margin-top: 0 !important;
+      border-bottom: 1px solid #ced4da !important;
+    }
+
+    .select2-selection--multiple {
+      font-size: 12px !important;
+      min-height: 17px;
+    }
+
+    .select2-selection {
+      width: 100% !important;
+      font-weight: normal !important;
+      background-color: transparent !important;
+      border: none !important;
+      border-radius: 0 !important;
+      border-bottom: 1px solid #ced4da !important;
+
+      li {
+        font-weight: normal !important;
+        background-color: transparent !important;
+        border: none !important;
+        border-radius: 0 !important;
+
+        input {
+          border: none !important;
+          margin: 0 !important;
+        }
+
+        input:focus {
+          border: none !important;
+          box-shadow: none !important;
+        }
+      }
+    }
+
+    .select2-selection:focus {
+      outline: none;
+      border-bottom: 1px solid #4285f4 !important;
+    }
+
+    .select2-selection__rendered {
+      padding-left: 0 !important;
+    }
+  }
 }

@@ -3,3 +3,21 @@
 <br />
 
 <div (click)="onOpenBig()" class="btn btn-block btn-primary">Edit</div>
+
+<br />
+
+<div class="md-form-select2" style="margin-top: 6px;" *ngIf="component">
+  <label>Text align</label>
+  <ng-select2 [data]="
+              [
+                {id: 'left', text: 'Left'},
+                {id: 'center', text: 'Center'},
+                {id: 'right', text: 'Right'},
+                {id: 'justify', text: 'Justify'},
+              ]
+              "
+              [(ngModel)]="component.textAlign"
+              [value]="'left'"
+              name="text-align">
+  </ng-select2>
+</div>

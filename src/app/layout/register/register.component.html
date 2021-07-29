@@ -1,0 +1,50 @@
+<div *ngIf="false === loggedIn" class="row">
+  <div class="col-4"></div>
+  <div class="col-lg-4 pt-5">
+    <mdb-card>
+      <mdb-card-body>
+        <h3>Register</h3>
+        <app-loading *ngIf="loading"></app-loading>
+        <form *ngIf="!loading" (ngSubmit)="register()" class="grey-text">
+          <fieldset>
+            <div class="md-form">
+              <mdb-icon fas icon="envelope" class="prefix"></mdb-icon>
+              <label for="input-email">Email</label>
+              <input mdbInput [(ngModel)]="email" [class.is-invalid]="errors['email']"
+                     type="text" id="input-email" name="email" class="form-control" autocomplete="off">
+              <div class="invalid-feedback" *ngIf="errors['email']">
+                {{errors['email']}}
+              </div>
+            </div>
+            <div class="md-form">
+              <mdb-icon fas icon="lock" class="prefix"></mdb-icon>
+              <label for="input-password">Password</label>
+              <input mdbInput [(ngModel)]="password" [class.is-invalid]="errors['password']"
+                     type="password" id="input-password" name="password" class="form-control">
+              <div class="invalid-feedback" *ngIf="errors['password']">
+                {{errors['password']}}
+              </div>
+            </div>
+            <div class="md-form">
+              <mdb-icon fas icon="lock" class="prefix"></mdb-icon>
+              <label for="input-password-verify">Password verify</label>
+              <input mdbInput [(ngModel)]="passwordVerify" [class.is-invalid]="errors['passwordVerify']"
+                     type="password" id="input-password-verify" name="password" class="form-control">
+              <div class="invalid-feedback" *ngIf="errors['passwordVerify']">
+                {{errors['passwordVerify']}}
+              </div>
+            </div>
+          </fieldset>
+          <br/>
+          <br/>
+          <button mdbBtn type="submit" color="success" [block]="true">Register</button>
+          <br/>
+          <div class="col-xs-12 text-center">
+            Already have account? <a routerLink="/login">Login</a>.
+          </div>
+          <br/>
+        </form>
+      </mdb-card-body>
+    </mdb-card>
+  </div>
+</div>
