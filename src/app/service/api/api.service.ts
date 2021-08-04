@@ -26,7 +26,10 @@ export class ApiService {
         if (401 === response.status){
           this.authService.verifyLoggedIn().then();
         }
-        this.popUp.error('Unexpected error. Please try again');
+        if (response.status >= 500){
+          this.popUp.error('Unexpected error. Please try again');
+        }
+
         return Promise.reject(response);
       });
   }
@@ -47,7 +50,9 @@ export class ApiService {
         if (401 === response.status){
           this.authService.verifyLoggedIn().then();
         }
-        this.popUp.error('Unexpected error. Please try again', 'Error');
+        if (response.status >= 500){
+          this.popUp.error('Unexpected error. Please try again');
+        }
         return Promise.reject(response);
       });
   }
@@ -64,7 +69,9 @@ export class ApiService {
         if (401 === response.status){
           this.authService.verifyLoggedIn().then();
         }
-        this.popUp.error('Unexpected error. Please try again', 'Error');
+        if (response.status >= 500){
+          this.popUp.error('Unexpected error. Please try again');
+        }
         return Promise.reject(response);
       });
   }
@@ -82,7 +89,9 @@ export class ApiService {
         if (401 === response.status){
           this.authService.verifyLoggedIn().then();
         }
-        this.popUp.error('Unexpected error. Please try again', 'Error');
+        if (response.status >= 500){
+          this.popUp.error('Unexpected error. Please try again');
+        }
         return Promise.reject(response);
       });
   }
@@ -100,7 +109,9 @@ export class ApiService {
         if (401 === response.status){
           this.authService.verifyLoggedIn().then();
         }
-        this.popUp.error('Unexpected error. Please try again', 'Error');
+        if (response.status >= 500){
+          this.popUp.error('Unexpected error. Please try again');
+        }
         return Promise.reject(response);
       });
   }

@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.authService.getUserInfo().then((user) => {
       if (user) {
-        this.userEmail = user.email
+        this.userEmail = user.email;
       }
     });
   }

@@ -47,10 +47,10 @@ import {RegisterComponent} from './layout/register/register.component';
 import {WebsiteNewComponent} from './layout/website/website-new/website-new.component';
 import {NewPathFormComponent} from './layout/website/website-details/new-path-form/new-path-form.component';
 import {PageTileComponent} from './layout/website/website-details/page-tile/page-tile.component';
-import {ToastrModule} from "ngx-toastr";
+import {ToastrModule} from 'ngx-toastr';
 import { ComponentHtmlPreviewComponent } from './components/component-html/component-html-preview/component-html-preview.component';
 import { ComponentMarginsPreviewComponent } from './components/component-margins/component-margins-preview/component-margins-preview.component';
-import {ComponentBackgroundImagePreviewComponent} from "./components/component-background-image/component-background-image-preview/component-background-image-preview.component";
+import {ComponentBackgroundImagePreviewComponent} from './components/component-background-image/component-background-image-preview/component-background-image-preview.component';
 import { ComponentThreeColumnsPreviewComponent } from './components/component-three-columns/component-three-columns-preview/component-three-columns-preview.component';
 import { ComponentImageComponent } from './components/component-image/component-image.component';
 import { ComponentImagePreviewComponent } from './components/component-image/component-image-preview/component-image-preview.component';
@@ -58,6 +58,9 @@ import { ComponentImageEditorComponent } from './components/component-image/comp
 import { DomainsListComponent } from './layout/domain/domains-list/domains-list.component';
 import { DomainNewComponent } from './layout/domain/domain-new/domain-new.component';
 import { DomainVerificationComponent } from './layout/domain/domain-verification/domain-verification.component';
+import { UserComponent } from './layout/user/user.component';
+import { UserPasswordComponent } from './layout/user/user-password/user-password.component';
+import { UserAccountRemovalComponent } from './layout/user/user-account-removal/user-account-removal.component';
 
 @NgModule({
   declarations: [
@@ -98,6 +101,9 @@ import { DomainVerificationComponent } from './layout/domain/domain-verification
     DomainsListComponent,
     DomainNewComponent,
     DomainVerificationComponent,
+    UserComponent,
+    UserPasswordComponent,
+    UserAccountRemovalComponent,
   ],
   imports: [
     BrowserModule,

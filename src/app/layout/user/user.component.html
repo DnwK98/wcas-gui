@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-lg-3 col-xs-12"></div>
+  <div class="col-lg-6 col-xs-12 pt-5">
+    <mdb-card>
+      <app-loading *ngIf="!user"></app-loading>
+      <mdb-card-body *ngIf="user">
+        <h2>User</h2>
+        <div class="row pt-3 pb-5">
+          <div class="col-5 pt-2 text-center"><mdb-icon style="font-size: 100px;" class="mr-1 grey-text" fas icon="user-alt"></mdb-icon></div>
+          <div class="col-7">
+            Email
+            <h5>{{user.email}}</h5>
+            Account created
+            <h5>{{user.created}}</h5>
+          </div>
+        </div>
+        <app-user-password></app-user-password>
+        <br />
+        <br />
+        <app-user-account-removal></app-user-account-removal>
+      </mdb-card-body>
+    </mdb-card>
+  </div>
+</div>

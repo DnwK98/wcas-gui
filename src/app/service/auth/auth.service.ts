@@ -80,7 +80,7 @@ export class AuthService {
     return that.http
       .get<any>(environment.apiUrl + '/api/me', {headers}).toPromise()
       .then(res => {
-        that.userInfo = res;
+        that.userInfo = res.data;
       })
       .catch((res) => {
         if (this.tokenRefresher) {

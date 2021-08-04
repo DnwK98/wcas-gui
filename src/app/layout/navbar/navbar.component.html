@@ -7,12 +7,18 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <button mdbBtn color="success" size="sm" (click)="createNewWebsite()" class="mr-auto">Create new website</button>
-    <form class="form-inline my-2 my-lg-0">
-      <mdb-icon class="mr-1 grey-text" fas icon="user-alt"></mdb-icon>
-      <div class="">
+
+    <div class="btn-group" mdbDropdown>
+      <span mdbDropdownToggle class="dropdown-toggle"
+              mdbWavesEffect>
+        <mdb-icon class="mr-1 grey-text" fas icon="user-alt"></mdb-icon>
         {{userEmail}}
+      </span>
+      <div class="dropdown-menu dropdown-primary">
+        <a class="dropdown-item" routerLink="/user/settings">Settings</a>
+        <div class="divider dropdown-divider"></div>
+        <a class="dropdown-item" (click)="logout()">Logout</a>
       </div>
-      <button mdbBtn class="btn btn-outline-primary my-2 my-sm-0 ml-4" type="submit" size="sm" (click)="logout()">Logout</button>
-    </form>
+    </div>
   </div>
 </nav>

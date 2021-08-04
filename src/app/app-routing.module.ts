@@ -11,6 +11,7 @@ import {RegisterComponent} from './layout/register/register.component';
 import {WebsiteNewComponent} from "./layout/website/website-new/website-new.component";
 import {DomainNewComponent} from "./layout/domain/domain-new/domain-new.component";
 import {DomainVerificationComponent} from "./layout/domain/domain-verification/domain-verification.component";
+import {UserComponent} from "./layout/user/user.component";
 
 const routes: Routes = [
   {
@@ -32,6 +33,7 @@ const routes: Routes = [
       {path: 'website/:websiteId/page/:pageId', component: PageComponent},
       {path: 'domain/new', component: DomainNewComponent},
       {path: 'domain/:id/verification', component: DomainVerificationComponent},
+      {path: 'user/settings', component: UserComponent},
       {path: 'not-found', component: NotFoundComponent},
       {path: '**', component: NotFoundComponent}
     ]

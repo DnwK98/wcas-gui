@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: "http://wcas-dev"
+  apiUrl: 'http://wcas-dev'
 };
 
 /*
