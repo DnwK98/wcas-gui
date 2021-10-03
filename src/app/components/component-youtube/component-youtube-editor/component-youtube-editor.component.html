@@ -1,0 +1,10 @@
+<app-component-editor-header [editorName]="'YouTube'"></app-component-editor-header>
+
+<div *ngIf="component" class="md-form">
+  <label for="input-image">YouTube url</label>
+  <input mdbInput [(ngModel)]="component.url"
+         type="text" id="input-image"
+         name="image"
+         class="form-control"
+         autocomplete="off">
+</div>

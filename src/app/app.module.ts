@@ -61,6 +61,11 @@ import { DomainVerificationComponent } from './layout/domain/domain-verification
 import { UserComponent } from './layout/user/user.component';
 import { UserPasswordComponent } from './layout/user/user-password/user-password.component';
 import { UserAccountRemovalComponent } from './layout/user/user-account-removal/user-account-removal.component';
+import { ComponentYoutubeComponent } from './components/component-youtube/component-youtube.component';
+import { ComponentYoutubePreviewComponent } from './components/component-youtube/component-youtube-preview/component-youtube-preview.component';
+import { ComponentYoutubeEditorComponent } from './components/component-youtube/component-youtube-editor/component-youtube-editor.component';
+import { ComponentTwoColumnsComponent } from './components/component-two-columns/component-two-columns.component';
+import { ComponentTwoColumnsPreviewComponent } from './components/component-two-columns/component-two-columns-preview/component-two-columns-preview.component';
 
 @NgModule({
   declarations: [
@@ -104,6 +109,11 @@ import { UserAccountRemovalComponent } from './layout/user/user-account-removal/
     UserComponent,
     UserPasswordComponent,
     UserAccountRemovalComponent,
+    ComponentYoutubeComponent,
+    ComponentYoutubePreviewComponent,
+    ComponentYoutubeEditorComponent,
+    ComponentTwoColumnsComponent,
+    ComponentTwoColumnsPreviewComponent,
   ],
   imports: [
     BrowserModule,

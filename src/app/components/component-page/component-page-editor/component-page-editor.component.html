@@ -1,5 +1,14 @@
 <app-component-editor-header [editorName]="'Page'"></app-component-editor-header>
 
+  <div *ngIf="component" class="md-form">
+    <label for="input-image">Title</label>
+    <input mdbInput [(ngModel)]="component.title"
+           type="text" id="input-image"
+           name="image"
+           class="form-control"
+           autocomplete="off">
+  </div>
+
   <div class="row pt-2" *ngIf="component">
     <div class="col-9">
       Background color

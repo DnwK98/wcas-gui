@@ -6,6 +6,8 @@ import {ComponentThreeColumnsComponent} from "../../components/component-three-c
 import {ComponentBackgroundImageComponent} from "../../components/component-background-image/component-background-image.component";
 import {ComponentMarginsComponent} from "../../components/component-margins/component-margins.component";
 import {ComponentImageComponent} from "../../components/component-image/component-image.component";
+import {ComponentYoutubeComponent} from "../../components/component-youtube/component-youtube.component";
+import {ComponentTwoColumnsComponent} from "../../components/component-two-columns/component-two-columns.component";
 
 @Injectable({
   providedIn: 'root'
@@ -41,9 +43,11 @@ export class ComponentBuilderService {
       case "BackgroundImageComponent": return ComponentBackgroundImageComponent;
       case "PageComponent": return ComponentPageComponent;
       case "HtmlComponent": return ComponentHtmlComponent;
+      case "YouTubeComponent": return ComponentYoutubeComponent;
       case "ImageComponent": return ComponentImageComponent;
       case "MarginsComponent": return ComponentMarginsComponent;
       case "ThreeColumnsComponent": return ComponentThreeColumnsComponent;
+      case "TwoColumnsComponent": return ComponentTwoColumnsComponent;
       default: return null;
     }
   }
